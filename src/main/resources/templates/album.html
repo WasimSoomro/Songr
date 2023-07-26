@@ -13,16 +13,19 @@
 
 
   <h1>Albums</h1>
-  <ul th:each="album : ${albums}">
+  <ul th:each="album : ${album}">
       <li>
           <h2 th:text="${album.title}"></h2>
           <p>Artist: <span th:text="${album.artist}"></span></p>
           <p>Song count: <span th:text="${album.songCount}"></span></p>
           <p>Length: <span th:text="${album.length}"></span></p>
-          <p>Image URL: <span th:text="${album.imageUrl}"></span></p>
+<!--          <p>Image URL: <span th:text="${album.imageUrl}"></span>-->
+              <img th:src="${album.imageUrl}" alt="Album art">
+
       </li>
   </ul>
 
 
 </body>
 </html>
+

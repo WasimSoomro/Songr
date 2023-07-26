@@ -1,5 +1,6 @@
 package com.songrLab.songr;
 
+import com.songrLab.songr.Models.Album;
 import org.springframework.boot.SpringApplication;
 import org.springframework.ui.Model;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Locale;
 
 @SpringBootApplication
 public class SongrApplication {
@@ -22,20 +25,16 @@ public class SongrApplication {
 			return "splash.html";
 		}
 
-		@ResponseBody
 		@GetMapping("/hello")
 		public String getHelloWorld() {
 			return "Hello World";
 		}
 
-		@ResponseBody
 		@GetMapping("/capitalize/{input}")
-		public String getCapitalize(@PathVariable("input") String input, Model model) {
-			String capitalizedInput = input.toUpperCase();
-			model.addAttribute("capitalizedInput", capitalizedInput);
+		public String getCapitalize(Model model, @PathVariable String input) {
+			model.addAttribute("inTheHTML", input.toUpperCase(Locale.ROOT));
 			return "capitalize";
 		}
-
 
 //		@GetMapping("/album")
 //		public String getAlbumPage(Model m) {
@@ -51,14 +50,17 @@ public class SongrApplication {
 //		}
 
 		@GetMapping("/album")
-		public String getAlbumPage(Model m) {
-			m.addAttribute("title", "AlbumTitle");
-			m.addAttribute("artist", "AlbumArtist");
-			m.addAttribute("songCount", "AlbumSongs");
-			m.addAttribute("length", "AlbumLength");
-//			m.addAttribute("imageURL", "AlbumImage");
-			return "album.html";
+		public String getAlbums(Model model) {
+			Album[] album = new Album[] {
+					new Album("Title1", "Artist1", 10, 300, "ImageUrl1"),
+					new Album("Title2", "Artist2", 20, 600, "ImageUrl2"),
+					new Album("Title3", "Artist3", 30, 900, "ImageUrl3")
+			};
+			model.addAttribute("album", album);
+			return "album";  // the name of your Thymeleaf template
 		}
 	}
 }
 
+
+//TA Help
