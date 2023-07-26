@@ -1,0 +1,1 @@
+Spring Initalizr was used to create a new applicaiton. This is lab 11, there are some basic routes set up, and an effort to populate a few albums.
