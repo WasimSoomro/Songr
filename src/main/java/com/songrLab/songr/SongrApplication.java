@@ -1,5 +1,9 @@
 package com.songrLab.songr;
 
+import com.songrLab.songr.models.Album;
+import com.songrLab.songr.models.Song;
+import com.songrLab.songr.repositories.AlbumRepository;
+import com.songrLab.songr.repositories.SongRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.ui.Model;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,8 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.songrLab.songr.Album;
-import com.songrLab.songr.Song;
 
 @SpringBootApplication
 public class SongrApplication {

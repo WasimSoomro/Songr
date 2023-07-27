@@ -1,5 +1,7 @@
 package com.songrLab.songr.models;
 
+import com.songrLab.songr.models.Album;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -52,8 +54,7 @@ public class Song {
         this.album = album;
     }
 
-    public Song(Long id, String title, int length, int trackNumber, Album album) {
-        this.id = id;
+    public Song(String title, int length, int trackNumber, Album album) {
         this.title = title;
         this.length = length;
         this.trackNumber = trackNumber;
@@ -64,4 +65,6 @@ public class Song {
     @JoinColumn(name = "album_id", nullable = false)
     private Album album;
 
+    protected Song() {
+    }
 }

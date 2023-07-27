@@ -1,6 +1,15 @@
-package com.songrLab.songr;
+package com.songrLab.songr.models;
 
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String artist;
     private int songCount;
@@ -58,6 +67,8 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
+    protected Album() {
+    }
 }
 
 
