@@ -7,6 +7,9 @@ public class Album {
     private int length;
     private String imageUrl;
 
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Song> songs = new ArrayList<>();
+
     public String getTitle() {
         return title;
     }
