@@ -1,11 +1,22 @@
 package com.songrLab.songr.Models;
+import jakarta.persistence.*;
 
+
+@Entity
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
     private String title;
     private String artist;
     private int songCount;
     private int length;  // in seconds
     private String imageUrl;
+
+    protected Album() {
+    }
 
     public String getTitle() {
         return title;
